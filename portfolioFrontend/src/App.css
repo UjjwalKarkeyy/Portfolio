@@ -6,7 +6,7 @@ body[data-theme='dark'] {
 
 /* src/App.css */
 html {
-  font-size: 28px;  /* Default is 16px → this makes everything bigger */
+  font-size: 18px;  /* Default is 16px → this makes everything bigger */
 }
 
 .app {
