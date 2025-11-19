@@ -1,5 +1,6 @@
 // src/pages/Home.jsx
 import homePic from "../assets/home_pic.jpg";
+import ujjwalCV from "../assets/Ujjwal_Karki_CV.pdf"
 
 function Home() {
   return (
@@ -20,6 +21,9 @@ function Home() {
             Feel free to explore - and reach out if you ever want to collaborate, talk tech,
             or even team up for a gaming session.
           </p>
+          <a href={ujjwalCV} download className="download-btn">
+            Download CV
+          </a>
         </div>
 
         {/* --- Image Section (placeholder for now) --- */}
