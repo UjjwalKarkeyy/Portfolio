@@ -9,11 +9,18 @@ const projects = [
     link: 'https://github.com/UjjwalKarkeyy/Crop_Disease_Prediction_Deploy',
   },
   {
-    title: 'BainiAI – Document Q&A Chatbot',
+    title: 'BainiAI – Company Policies Q&A Chatbot',
     description:
-      'LLM-powered chatbot that answers questions from documents and books appointments using natural language.',
+      'LLM-powered chatbot that answers questions from documents of your company and books appointments using natural language.',
     tech: ['LangChain', 'Gemini', 'ChromaDB', 'React', 'FastAPI'],
     link: 'https://github.com/UjjwalKarkeyy/bainiAI_Chatbot_Full',
+  },
+  {
+    title: 'didiAI – Document Q&A and Interview Booking Chatbot',
+    description:
+      'LLM-powered chatbot that answers questions based on uploaded documents and books interviews using natural language.',
+    tech: ['LangChain', 'Gemini', 'Qdrant', 'Redis', 'SQLite', 'SQLAlchemy ', 'FastAPI'],
+    link: 'https://github.com/UjjwalKarkeyy/didiAI',
   },
 ]
 
