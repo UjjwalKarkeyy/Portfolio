@@ -11,19 +11,25 @@ function About() {
         {/* --- Text Section --- */}
         <div className="about-text">
           <p className="page-text">
-            I&apos;m a curious BSc IT student who loves working at the intersection of data, code, and real-world
-            problems. Most of my time goes into learning Machine Learning, building small projects, and trying to
-            understand how AI can be used to solve problems in places like Nepal and beyond.
+            I’m a 4th-year BScIT student who enjoys the challenge of finding patterns in
+            noisy datasets. My current focus is building a rock-solid career foundation as a
+            Data Analyst, where I can apply my love for logic and problem-solving to
+            real-world business questions.
           </p>
 
           <p className="page-text">
-            I enjoy backend, data pipelines, and experimentation more than pixel-perfect UI, which is why this
-            portfolio is clean, simple, and focused on what matters: the work I do and the impact I want to create.
+            I’m particularly curious about the <b>statistical logic</b> behind the data—moving
+            beyond just "running code" to understand the "why" behind the results. I thrive
+            on the backend, working with advanced SQL (CTEs and sub-queries) and data pipelines
+            rather than pixel-perfect UI. This portfolio is a reflection of that: clean, direct,
+            and focused on the data.
           </p>
 
           <p className="page-text">
-            Outside the tech world, I’m a gamer and a beatboxer - both of which help me stay creative, energized,
-            and balanced while I build and learn.
+            When I’m not querying databases, I’m likely competitive gaming, beatboxing, journaling, video/shorts editing, 
+            book reading, exercising, researching random thoughts, or simply thinking about life.
+            All keep me creative and energized, helping me maintain a balanced perspective
+            while I build and learn.
           </p>
         </div>
 

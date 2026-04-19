@@ -13,13 +13,13 @@ function Home() {
 
           <h1 className="hero-title">Ujjwal Karki</h1>
 
-          <p className="hero-role"><b>Aspiring AI/ML Engineer</b></p>
+          <p className="hero-role"><b>Data Analyst | Aspiring Data Scientist</b></p>
 
           <p className="hero-subtitle">
-            I build things that live at the intersection of data, code, and people.
-            This portfolio showcases who I am, what I’m learning, and the projects I’ve worked on.
-            Feel free to explore - and reach out if you ever want to collaborate, talk tech,
-            or even team up for a gaming session.
+            I’m a final-year IT student dedicated to turning complex data into clear, actionable insights. 
+            Currently, I’m focused on mastering the technical foundations of data analysis as a 
+            stepping stone toward high-impact Data Science. Feel free to explore my work—and reach 
+            out if you want to talk data logic, collaborative projects, or even team up for a gaming session.
           </p>
           <a href={ujjwalResume} download className="download-btn">
             Download Resume

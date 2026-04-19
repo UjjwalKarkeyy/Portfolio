@@ -22,6 +22,14 @@ const projects = [
     tech: ['LangChain', 'Gemini', 'Qdrant', 'Redis', 'SQLite', 'SQLAlchemy ', 'FastAPI'],
     link: 'https://github.com/UjjwalKarkeyy/didiAI',
   },
+
+  {
+    title: 'SQL Data Job Market Analysis',
+    description:
+      'A strategic analysis of the Data Analyst job market using PostgreSQL to identify high-demand skills and salary trends. Focused on leveraging advanced SQL (CTEs and Sub-queries) to map out a data-driven path toward Data Science.',
+    tech: ['PostgreSQL', 'SQL', 'Data Analysis', 'Data Strategy'],
+    link: 'https://github.com/UjjwalKarkeyy/SQL_DATA_JOB_ANALYSIS',
+  },
 ]
 
 function Projects() {
