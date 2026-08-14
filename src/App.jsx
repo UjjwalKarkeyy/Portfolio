@@ -7,6 +7,7 @@ import Toolbox from "./components/Toolbox.jsx";
 import Footer from "./components/Footer.jsx";
 import ProjectDetailPage from "./components/ProjectDetailPage.jsx";
 import ProjectsListPage from "./components/ProjectsListPage.jsx";
+import MusicPlayer from "./components/MusicPlayer.jsx";
 
 export default function App() {
   const projectMatch = window.location.pathname.match(/^\/projects\/([^/]+)\/?$/);
@@ -44,6 +45,7 @@ export default function App() {
   return (
     <>
       <Navbar />
+      <MusicPlayer />
       <main>
         <Hero />
         <Projects />
