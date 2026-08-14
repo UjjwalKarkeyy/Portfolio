@@ -21,6 +21,14 @@ html {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
+
+  .valorant-player__crosshair,
+  .valorant-player__particle,
+  .valorant-tracer,
+  .valorant-spike,
+  .valorant-callout {
+    display: none;
+  }
 }
 
 body {
@@ -299,200 +307,238 @@ h3 {
   gap: 14px;
 }
 
-.pixel-battle__stage {
+.valorant-rail {
   position: fixed;
-  top: 120px;
+  top: 112px;
   bottom: 44px;
-  left: max(18px, calc((100vw - 1000px) / 2 - 150px));
+  left: max(18px, calc((100vw - 1000px) / 2 - 120px));
   z-index: 4;
-  width: 120px;
+  width: 92px;
   pointer-events: none;
 }
 
-.battle-track {
+.valorant-rail__line {
   position: absolute;
-  top: 18px;
-  bottom: 18px;
-  left: 56px;
+  top: 8px;
+  bottom: 8px;
+  left: 36px;
   display: grid;
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   width: 0;
-  border-left: 2px solid color-mix(in srgb, var(--border) 22%, transparent);
+  border-left: 2px solid color-mix(in srgb, var(--border) 28%, transparent);
 }
 
-.battle-track span {
-  min-width: 42px;
-  border-bottom: 2px solid color-mix(in srgb, var(--border) 12%, transparent);
+.valorant-rail__line span {
+  position: relative;
 }
 
-.battle-hero {
+.valorant-rail__line span::before {
+  content: "";
   position: absolute;
-  top: 42px;
-  left: 30px;
-  width: 54px;
-  height: 70px;
-  transition: top 420ms steps(4);
+  top: 0;
+  left: -6px;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  box-shadow: 2px 2px 0 var(--shadow);
+}
+
+.valorant-player {
+  position: absolute;
+  top: calc(8px + (100% - 68px) * var(--rail-progress));
+  left: 12px;
+  width: 48px;
+  height: 62px;
+  transform: translateY(-6px);
+  transition: top 120ms steps(3), transform 160ms steps(2);
   image-rendering: pixelated;
 }
 
-.battle-frame--monster-one .battle-hero {
-  top: 150px;
-}
-
-.battle-frame--monster-two .battle-hero {
-  top: 270px;
-}
-
-.battle-frame--monster-three .battle-hero {
-  top: 390px;
-}
-
-.battle-frame--victory .battle-hero {
-  top: 465px;
-}
-
-.battle-hero span,
-.battle-monster,
-.battle-shot {
+.valorant-player span,
+.valorant-tracer,
+.valorant-spike,
+.valorant-callout {
   position: absolute;
   display: block;
 }
 
-.battle-hero__head {
+.valorant-player__head {
   top: 0;
-  left: 14px;
-  width: 24px;
-  height: 24px;
+  left: 13px;
+  width: 22px;
+  height: 22px;
   border: 2px solid var(--border);
   background: var(--surface-strong);
 }
 
-.battle-hero__body {
-  top: 24px;
-  left: 10px;
-  width: 32px;
+.valorant-player__body {
+  top: 22px;
+  left: 9px;
+  width: 30px;
   height: 28px;
   border: 2px solid var(--border);
   background: var(--accent);
 }
 
-.battle-hero__gun {
-  top: 34px;
-  left: 40px;
-  width: 22px;
-  height: 8px;
+.valorant-player__visor {
+  top: 8px;
+  left: 12px;
+  width: 24px;
+  height: 7px;
+  background: var(--text);
+}
+
+.valorant-player__arm {
+  top: 30px;
+  left: 36px;
+  width: 18px;
+  height: 7px;
   border: 2px solid var(--border);
   background: var(--text);
 }
 
-.battle-hero__leg {
-  top: 50px;
-  width: 12px;
-  height: 16px;
+.valorant-player__leg {
+  top: 48px;
+  width: 11px;
+  height: 14px;
   border: 2px solid var(--border);
   background: var(--surface-strong);
 }
 
-.battle-hero__leg--one {
-  left: 10px;
+.valorant-player__leg--one {
+  left: 9px;
 }
 
-.battle-hero__leg--two {
-  left: 30px;
+.valorant-player__leg--two {
+  left: 28px;
 }
 
-.battle-monster {
-  left: 62px;
-  width: 34px;
-  height: 30px;
-  border: 2px solid var(--border);
-  background: var(--surface-strong);
-  box-shadow: 2px 2px 0 var(--shadow);
-  transition: opacity 220ms ease, transform 220ms ease;
+.valorant-player__crosshair {
+  top: -10px;
+  left: 5px;
+  width: 38px;
+  height: 38px;
+  border: 2px solid var(--accent);
+  opacity: 0;
 }
 
-.battle-monster span {
-  position: absolute;
-  top: 8px;
+.valorant-rail--spawn .valorant-player__crosshair {
+  opacity: 0.55;
+}
+
+.valorant-rail--ability .valorant-player {
+  transform: translate(10px, -6px);
+}
+
+.valorant-player__particle {
   width: 6px;
   height: 6px;
-  background: var(--text);
-}
-
-.battle-monster span:first-child {
-  left: 7px;
-}
-
-.battle-monster span:last-child {
-  right: 7px;
-}
-
-.battle-monster--one {
-  top: 150px;
-}
-
-.battle-monster--two {
-  top: 270px;
-}
-
-.battle-monster--three {
-  top: 390px;
-}
-
-.battle-frame--monster-two .battle-monster--one,
-.battle-frame--monster-three .battle-monster--one,
-.battle-frame--monster-three .battle-monster--two,
-.battle-frame--victory .battle-monster {
-  opacity: 0;
-  transform: translateX(16px);
-}
-
-.battle-shot {
-  left: 82px;
-  width: 20px;
-  height: 4px;
   background: var(--accent);
   opacity: 0;
+}
+
+.valorant-player__particle--one {
+  top: 18px;
+  left: -4px;
+}
+
+.valorant-player__particle--two {
+  top: 32px;
+  left: 2px;
+}
+
+.valorant-player__particle--three {
+  top: 44px;
+  left: -8px;
+}
+
+.valorant-rail--ability .valorant-player__particle {
+  opacity: 0.85;
+}
+
+.valorant-tracer {
+  top: 52%;
+  left: 58px;
+  width: 28px;
+  height: 4px;
+  background: var(--accent);
   box-shadow: 2px 0 0 var(--shadow);
+  opacity: 0;
 }
 
-.battle-shot--one {
-  top: 184px;
-}
-
-.battle-shot--two {
-  top: 304px;
-}
-
-.battle-shot--three {
-  top: 424px;
-}
-
-.battle-frame--monster-one .battle-shot--one,
-.battle-frame--monster-two .battle-shot--two,
-.battle-frame--monster-three .battle-shot--three {
+.valorant-rail--shooting .valorant-tracer {
   opacity: 1;
 }
 
-.battle-victory {
-  position: absolute;
-  top: 540px;
+.valorant-rail--shooting .valorant-player__arm {
+  background: var(--accent);
+}
+
+.valorant-spike {
+  top: 70%;
+  left: 54px;
+  width: 28px;
+  height: 42px;
+  opacity: 0;
+}
+
+.valorant-spike__core {
+  top: 0;
+  left: 8px;
+  width: 12px;
+  height: 18px;
+  border: 2px solid var(--border);
+  background: var(--surface-strong);
+}
+
+.valorant-spike__bar {
+  top: 26px;
+  left: 0;
+  width: 28px;
+  height: 8px;
+  border: 2px solid var(--border);
+  background:
+    linear-gradient(
+      90deg,
+      var(--accent) calc(var(--plant-progress) * 100%),
+      transparent 0
+    ),
+    var(--surface);
+}
+
+.valorant-rail--spike .valorant-spike,
+.valorant-rail--complete .valorant-spike {
+  opacity: 1;
+}
+
+.valorant-callout {
   left: 0;
   border: 2px solid var(--border);
   background: var(--surface);
   color: var(--accent);
   box-shadow: 2px 2px 0 var(--shadow);
-  padding: 8px 9px;
+  padding: 7px 8px;
   opacity: 0;
   font-family: "Press Start 2P", ui-monospace, monospace;
-  font-size: 0.58rem;
+  font-size: 0.5rem;
   line-height: 1.5;
-  transition: opacity 220ms ease, transform 220ms ease;
 }
 
-.battle-frame--victory .battle-victory {
+.valorant-callout--planted {
+  top: 76%;
+}
+
+.valorant-callout--complete {
+  top: 90%;
+}
+
+.valorant-rail--spike .valorant-callout--planted {
   opacity: 1;
-  transform: translateY(-8px);
+}
+
+.valorant-rail--complete .valorant-callout--complete {
+  opacity: 1;
 }
 
 .button {
@@ -1090,7 +1136,7 @@ h3 {
     padding-block: 64px 80px;
   }
 
-  .pixel-battle__stage {
+  .valorant-rail {
     display: none;
   }
 

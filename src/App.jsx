@@ -8,7 +8,7 @@ import Footer from "./components/Footer.jsx";
 import ProjectDetailPage from "./components/ProjectDetailPage.jsx";
 import ProjectsListPage from "./components/ProjectsListPage.jsx";
 import MusicPlayer from "./components/MusicPlayer.jsx";
-import PixelBattle from "./components/PixelBattle.jsx";
+import ValorantRail from "./components/ValorantRail.jsx";
 
 export default function App() {
   const [location, setLocation] = useState({
@@ -82,7 +82,7 @@ export default function App() {
     <>
       <Navbar />
       <MusicPlayer visible={isHome} />
-      {isHome ? <PixelBattle /> : null}
+      {isHome ? <ValorantRail /> : null}
       {content}
       <Footer />
     </>

@@ -1,15 +1,152 @@
-1. Project expansion
-	- As in future, projects can get too many, so for now, in the project section of main page, just display top 4 projects 
-    (by when they were added, but no need to show date to the user). Then a button at the end that says 'View more' if there are 
-    more than 4 projects. The record count that says '__ records found' should display the total projects count.
-	
-    - Add a genre tag for each project. The genre will be given by the user from the code section. Make sure the genre are like 
-    'lowercased' so that later when filtering, same genres can be easily filtered out. Also, this genre should appear beside the 
-    project title and not together with tags. Lastly, the user (from the code side) should be able to assign a project different 
-    genres as per the project.
+Implement a **Valorant-inspired scroll-driven animation only on the homepage**, using the narrow empty vertical area on the **left side of the existing layout**.
 
-	- Once 'View more' is clicked, the user should be redirected to a projects list page where they now get to see all the projects. 
-    Also, in this page there should be a search bar and a filter. Using search bar, the user can search for any projects 
-    (if such project exists, else show 'I haven't done this project 🧐, but maybe something similar or interesting is still here 
-    for you 🫣'). For the filter, the user should be able to filter based on both genre and skills and the result should be 
-    any project that contains that genre or skill
+### Main concept
+
+Treat the existing vertical line on the left side as a **game path**.
+
+A small pixel-style Valorant-inspired character/icon should move vertically along this path as the user scrolls down the homepage.
+
+The animation should feel subtle and integrated into the existing retro/pixel UI. Do **not** redesign the page or interfere with the main content.
+
+### Visual style
+
+Match the current website style:
+
+* pixel/retro appearance
+* mostly black, white, and grey
+* use the existing blue accent color
+* sharp borders
+* no gradients
+* no realistic Valorant artwork
+* no large background images
+* keep everything minimal
+
+The animation should look like it belongs to the current UI rather than being pasted on top of it.
+
+### Scroll behaviour
+
+The player should move progressively down the vertical left-side path based on homepage scroll progress.
+
+The character should remain constrained to the left animation rail and should not overlap the main text/content.
+
+Movement should be smooth but slightly stepped/pixel-like rather than overly fluid.
+
+### Checkpoints
+
+Use the existing square markers on the vertical line as animation checkpoints.
+
+When the character reaches different checkpoints, trigger small Valorant-inspired events.
+
+Suggested sequence:
+
+**Checkpoint 1 — Spawn**
+
+Character starts near the top of the rail.
+
+A very small crosshair briefly appears around the character and fades away.
+
+**Checkpoint 2 — Ability**
+
+When the next marker is reached:
+
+* small blue pixel particles appear
+* character performs a quick dash/teleport movement
+* particles disappear immediately afterward
+
+Keep this extremely small and subtle.
+
+**Checkpoint 3 — Shooting**
+
+At another checkpoint:
+
+* character faces toward the right
+* small pixel muzzle flash appears
+* optionally show one tiny bullet/tracer travelling a short distance toward the right
+* tracer must disappear before reaching the main page text
+
+Do not add repeated gunfire.
+
+**Checkpoint 4 — Spike**
+
+Near another marker:
+
+* display a tiny spike-inspired icon beside the rail
+* animate a small planting progress bar or circular indicator
+* progress should be tied to scroll position
+
+Once completed, briefly show something similar to:
+
+`SPIKE PLANTED`
+
+Use very small pixel text.
+
+**Checkpoint 5 — Round Complete**
+
+Toward the end of the homepage animation sequence, briefly display:
+
+`ROUND WON`
+
+or
+
+`CLUTCH`
+
+Use the same pixel font/style already present on the site.
+
+Fade it away as scrolling continues.
+
+### Character
+
+Do not use copyrighted Valorant agent artwork.
+
+Create a very simple original pixel character inspired by tactical FPS games.
+
+It can look similar to the small blue/black character already present near the top-left of the homepage.
+
+The character should remain approximately the same visual size as the existing decorative icons.
+
+### Technical behaviour
+
+The animation must:
+
+* exist only on the homepage
+* not appear on Projects, Toolbox, About, Resume, or other pages
+* follow scroll progress rather than automatically playing
+* reverse naturally when the user scrolls upward
+* not cause layout shifts
+* not change document height unnecessarily
+* not block links or mouse interaction
+* use `pointer-events: none` for decorative animation elements
+* remain responsive
+* hide or simplify the animation on very narrow/mobile layouts if the left rail no longer has enough space
+
+Prefer CSS scroll-driven animations where practical.
+
+JavaScript may be used for checkpoint/state logic if necessary, but keep the implementation lightweight.
+
+### Accessibility
+
+Respect:
+
+`prefers-reduced-motion: reduce`
+
+When reduced motion is enabled:
+
+* keep the character static
+* disable dashes, shooting, particles, and flashing
+* keep the normal homepage completely usable
+
+### Important constraints
+
+Do NOT:
+
+* modify the navigation
+* move the main homepage content
+* widen the left column significantly
+* change typography
+* change the existing grid background
+* turn the entire homepage into a Valorant UI
+* use large Valorant logos or copyrighted agent imagery
+* autoplay sound
+* make the effects visually distracting
+
+The final result should feel like a **small hidden Valorant mini-game travelling down the left side of the portfolio while the user scrolls**, while the portfolio itself remains the main focus.
