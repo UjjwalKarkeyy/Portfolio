@@ -3,11 +3,8 @@ import { skillGroups } from "../data/skills.js";
 
 export default function Toolbox() {
   return (
-    <section className="section container" id="toolbox" aria-labelledby="toolbox-title">
+    <section className="section container" id="toolbox" aria-label="Toolbox">
       <SectionLabel number="02">TOOLBOX</SectionLabel>
-      <div className="section-heading section-heading--wide">
-        <h2 id="toolbox-title">Tools for analysis, reporting, and building.</h2>
-      </div>
       <div className="toolbox-grid">
         {skillGroups.map((group) => (
           <div className="toolbox-group" key={group.label}>

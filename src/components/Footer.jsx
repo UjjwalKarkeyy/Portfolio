@@ -33,7 +33,18 @@ export default function Footer() {
 
   return (
     <footer className="footer container">
-      <p>&lt; END OF FILE /&gt;</p>
+      <div className="footer__contact">
+        <span>contact me:</span>
+        <button className="footer__email" type="button" onClick={copyEmail}>
+          ujjwalkarki [dot] official [at] gmail [dot] com
+        </button>
+        {copied ? (
+          <span className="footer__copied" role="status">
+            Copied to clipboard!
+          </span>
+        ) : null}
+      </div>
+      <p className="footer__end">&lt; END OF FILE /&gt;</p>
       <div className="footer__links">
         <span>UJJWAL KARKI · 2026 ·</span>
         <a
@@ -50,14 +61,6 @@ export default function Footer() {
         >
           LinkedIn ↗
         </a>
-        <button className="footer__email" type="button" onClick={copyEmail}>
-          ujjwalkarki [dot] official [at] gmail [dot] com
-        </button>
-        {copied ? (
-          <span className="footer__copied" role="status">
-            Copied to clipboard!
-          </span>
-        ) : null}
       </div>
     </footer>
   );
