@@ -37,3 +37,7 @@ desktop.ini
 *.tmp
 *.temp
 ~$*
+
+# Local documentation
+USER_GUIDE.md
+TECH_OVERVIEW.md
