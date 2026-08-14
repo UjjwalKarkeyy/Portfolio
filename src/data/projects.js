@@ -1,5 +1,6 @@
 export const projects = [
   {
+    slug: "project-title",
     title: "Project Title",
     description:
       "Short description explaining the data question, analysis approach, and useful outcome. Replace this placeholder with a real project when repository details are ready.",
@@ -20,6 +21,7 @@ export const projects = [
     ]
   },
   {
+    slug: "dashboard-study",
     title: "Dashboard Study",
     description:
       "Placeholder for a visualization project, such as a Power BI or Excel dashboard that turns raw records into a clear view for comparison and decision-making.",
@@ -32,6 +34,7 @@ export const projects = [
     extras: []
   },
   {
+    slug: "machine-learning-notebook",
     title: "Machine Learning Notebook",
     description:
       "Placeholder for a learning project focused on preparing data, training a simple model, and communicating what the model can and cannot explain.",

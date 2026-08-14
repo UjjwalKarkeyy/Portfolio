@@ -343,10 +343,6 @@ h3 {
   box-shadow: 6px 6px 0 var(--shadow);
 }
 
-.project-card--open {
-  border-color: var(--accent);
-}
-
 .project-card__meta {
   flex-wrap: wrap;
   gap: 10px 16px;
@@ -356,64 +352,22 @@ h3 {
   line-height: 1.7;
 }
 
+.project-card__content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(230px, 300px);
+  gap: clamp(20px, 4vw, 42px);
+}
+
 .project-card p {
   margin-bottom: 0;
   color: var(--muted);
 }
 
-.project-card__toggle {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  gap: 18px;
-  border: 0;
-  padding: 0;
-  background: transparent;
-  color: inherit;
-  cursor: pointer;
-  font: inherit;
-  text-align: left;
-}
-
-.project-card__title {
-  margin-bottom: 0;
-}
-
-.project-card__title-text {
-  display: block;
-  margin-bottom: 6px;
-  font-size: clamp(1.35rem, 3vw, 2rem);
-  font-weight: 700;
-  line-height: 1.15;
-}
-
-.project-card__toggle small {
-  color: var(--muted);
-  font-family: "Press Start 2P", ui-monospace, monospace;
-  font-size: 0.55rem;
-}
-
-.project-card__toggle-icon {
-  display: grid;
-  place-items: center;
-  flex: 0 0 auto;
-  width: 34px;
-  height: 34px;
-  border: 2px solid var(--border);
-  background: var(--surface-strong);
-  box-shadow: 2px 2px 0 var(--shadow);
-  font-family: "Press Start 2P", ui-monospace, monospace;
-  font-size: 0.9rem;
-}
-
-.project-card__details {
+.project-card__side {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 24px;
-  margin-top: 24px;
-  padding-top: 24px;
-  border-top: 2px solid color-mix(in srgb, var(--border) 18%, transparent);
 }
 
 .tag-list {
@@ -466,15 +420,54 @@ h3 {
   font-size: 0.62rem;
 }
 
-.project-detail-section {
-  display: grid;
-  gap: 14px;
+.project-page {
+  min-height: calc(100svh - 76px);
 }
 
-.project-detail-section h4 {
+.project-page__back {
+  margin-bottom: 28px;
+}
+
+.project-page__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 260px);
+  gap: clamp(24px, 5vw, 60px);
+  align-items: start;
+  margin-bottom: 24px;
+}
+
+.project-page__header h1 {
+  margin-bottom: 18px;
+  font-size: clamp(2.6rem, 8vw, 6rem);
+}
+
+.project-page__header p {
+  max-width: 760px;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.project-page__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.project-page__tags {
+  margin-bottom: 42px;
+}
+
+.project-detail-section {
+  display: grid;
+  gap: 16px;
+  margin-top: 42px;
+}
+
+.project-detail-section h2 {
   margin: 0;
   font-family: "Press Start 2P", ui-monospace, monospace;
-  font-size: 0.68rem;
+  font-size: 0.82rem;
   letter-spacing: 0;
 }
 
@@ -544,7 +537,7 @@ h3 {
   gap: 8px;
 }
 
-.extras__group h5 {
+.extras__group h3 {
   margin: 0;
   color: var(--text);
   font-size: 0.95rem;
@@ -722,7 +715,9 @@ h3 {
   }
 
   .section-grid,
-  .section-heading {
+  .section-heading,
+  .project-card__content,
+  .project-page__header {
     grid-template-columns: 1fr;
   }
 
