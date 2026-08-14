@@ -303,21 +303,18 @@ h3 {
   position: fixed;
   top: 110px;
   bottom: 34px;
-  left: max(18px, calc((100vw - 1000px) / 2 - 190px));
+  left: max(18px, calc((100vw - 1000px) / 2 - 250px));
   z-index: 4;
-  width: 160px;
-  border: 2px solid var(--border);
-  background: var(--surface);
-  box-shadow: 4px 4px 0 var(--shadow);
-  overflow: hidden;
+  width: 230px;
+  pointer-events: none;
 }
 
 .identity-chase__stage::before {
   content: "ANIMATION / IDENTITY CHASE";
   position: absolute;
-  top: 12px;
-  left: 10px;
-  right: 10px;
+  top: 0;
+  left: 0;
+  right: auto;
   color: var(--muted);
   font-family: "Press Start 2P", ui-monospace, monospace;
   font-size: 0.46rem;
@@ -328,9 +325,8 @@ h3 {
 .identity-chase__track {
   position: absolute;
   top: 70px;
-  right: 50%;
+  left: 68px;
   bottom: 28px;
-  left: auto;
   display: grid;
   grid-template-rows: repeat(5, 1fr);
   width: 0;
@@ -344,7 +340,7 @@ h3 {
 
 .scene-character {
   position: absolute;
-  left: 52px;
+  left: 48px;
   width: 56px;
   transition: top 420ms steps(4), transform 420ms steps(4);
 }
@@ -387,8 +383,8 @@ h3 {
 
 .scene-bubble {
   position: absolute;
-  bottom: 58px;
-  min-width: 150px;
+  bottom: 66px;
+  width: 220px;
   border: 2px solid var(--border);
   background: var(--bg);
   color: var(--text);
@@ -397,14 +393,16 @@ h3 {
   font-family: "Press Start 2P", ui-monospace, monospace;
   font-size: 0.46rem;
   line-height: 1.6;
+  white-space: normal;
+  pointer-events: auto;
 }
 
 .scene-bubble--normal {
-  left: 28px;
+  left: 0;
 }
 
 .scene-bubble--hidden {
-  right: 28px;
+  left: 0;
 }
 
 .pixel-person {
