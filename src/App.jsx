@@ -45,9 +45,13 @@ export default function App() {
       window.history.pushState({}, "", link.pathname + link.search + link.hash);
       syncLocation();
 
-      if (!link.hash) {
-        window.requestAnimationFrame(() => window.scrollTo({ top: 0 }));
-      }
+      window.requestAnimationFrame(() => {
+        if (link.hash) {
+          document.querySelector(link.hash)?.scrollIntoView();
+        } else {
+          window.scrollTo({ top: 0 });
+        }
+      });
     }
 
     window.addEventListener("popstate", syncLocation);
@@ -66,6 +70,12 @@ export default function App() {
       document.querySelector(location.hash)?.scrollIntoView();
     });
   }, [isHome, location.hash]);
+
+  useEffect(() => {
+    if (location.hash) return;
+
+    window.requestAnimationFrame(() => window.scrollTo({ top: 0 }));
+  }, [location.pathname, location.hash]);
 
   let content = (
     <main className="home-page">

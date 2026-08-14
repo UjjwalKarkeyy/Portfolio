@@ -10,24 +10,33 @@ export default function Footer() {
     window.setTimeout(() => setCopied(false), 1800);
   }
 
+  function copyWithFallback() {
+    const input = document.createElement("textarea");
+    input.value = email;
+    input.setAttribute("readonly", "");
+    input.style.position = "fixed";
+    input.style.opacity = "0";
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand("copy");
+    document.body.removeChild(input);
+  }
+
   async function copyEmail() {
     try {
       if (navigator.clipboard) {
         await navigator.clipboard.writeText(email);
       } else {
-        const input = document.createElement("textarea");
-        input.value = email;
-        input.setAttribute("readonly", "");
-        input.style.position = "fixed";
-        input.style.opacity = "0";
-        document.body.appendChild(input);
-        input.select();
-        document.execCommand("copy");
-        document.body.removeChild(input);
+        copyWithFallback();
       }
       showCopied();
     } catch {
-      setCopied(false);
+      try {
+        copyWithFallback();
+        showCopied();
+      } catch {
+        setCopied(false);
+      }
     }
   }
 

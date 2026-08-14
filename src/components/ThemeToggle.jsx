@@ -2,10 +2,14 @@ import { useEffect, useState } from "react";
 
 function getInitialTheme() {
   if (typeof window === "undefined") return "light";
-  return (
-    localStorage.getItem("theme") ||
-    (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
-  );
+  try {
+    return (
+      localStorage.getItem("theme") ||
+      (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+    );
+  } catch {
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
 }
 
 export default function ThemeToggle() {
@@ -13,7 +17,11 @@ export default function ThemeToggle() {
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
-    localStorage.setItem("theme", theme);
+    try {
+      localStorage.setItem("theme", theme);
+    } catch {
+      // Theme still applies for the current session if storage is unavailable.
+    }
   }, [theme]);
 
   const nextTheme = theme === "light" ? "dark" : "light";

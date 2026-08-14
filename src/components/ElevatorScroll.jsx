@@ -22,12 +22,20 @@ export default function ElevatorScroll() {
     updateProgress();
     window.addEventListener("scroll", updateProgress, { passive: true });
     window.addEventListener("resize", updateProgress);
-    mediaQuery.addEventListener("change", updateProgress);
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener("change", updateProgress);
+    } else {
+      mediaQuery.addListener(updateProgress);
+    }
 
     return () => {
       window.removeEventListener("scroll", updateProgress);
       window.removeEventListener("resize", updateProgress);
-      mediaQuery.removeEventListener("change", updateProgress);
+      if (mediaQuery.removeEventListener) {
+        mediaQuery.removeEventListener("change", updateProgress);
+      } else {
+        mediaQuery.removeListener(updateProgress);
+      }
     };
   }, []);
 

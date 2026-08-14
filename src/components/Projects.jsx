@@ -14,7 +14,7 @@ export default function Projects() {
       </SectionLabel>
       <div className="project-list">
         {visibleProjects.map((project, index) => (
-          <ProjectCard key={project.title} project={project} index={index} />
+          <ProjectCard key={project.slug} project={project} index={index} />
         ))}
       </div>
       {projects.length > 4 ? (
