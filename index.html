@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="BScIT student and aspiring Data Analyst building practical experience in data analysis, visualization, and data-driven problem solving."
+    />
+    <meta name="theme-color" content="#faf9f6" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script>
+      (function () {
+        var saved = localStorage.getItem("theme");
+        var preferred = window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+        document.documentElement.dataset.theme = saved || preferred;
+      })();
+    </script>
+    <title>Ujjwal Karki | Data Analyst Portfolio</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
