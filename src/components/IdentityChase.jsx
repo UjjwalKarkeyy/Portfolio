@@ -23,7 +23,7 @@ const frames = [
   },
   {
     className: "scene-frame--catch",
-    normalLine: "*shocked*",
+    normalLine: "",
     hiddenLine: "I am YOU!"
   }
 ];

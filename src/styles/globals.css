@@ -387,11 +387,11 @@ h3 {
 }
 
 .scene-bubble--normal {
-  left: 0;
+  right: 110px;
 }
 
 .scene-bubble--hidden {
-  left: 0;
+  right: 110px;
 }
 
 .pixel-person {
