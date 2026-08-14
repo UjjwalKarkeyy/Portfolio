@@ -303,23 +303,10 @@ h3 {
   position: fixed;
   top: 110px;
   bottom: 34px;
-  left: max(18px, calc((100vw - 1000px) / 2 - 250px));
+  left: max(18px, calc((100vw - 1000px) / 2 - 195px));
   z-index: 4;
-  width: 230px;
+  width: 180px;
   pointer-events: none;
-}
-
-.identity-chase__stage::before {
-  content: "ANIMATION / IDENTITY CHASE";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: auto;
-  color: var(--muted);
-  font-family: "Press Start 2P", ui-monospace, monospace;
-  font-size: 0.46rem;
-  line-height: 1.6;
-  z-index: 2;
 }
 
 .identity-chase__track {
@@ -384,16 +371,18 @@ h3 {
 .scene-bubble {
   position: absolute;
   bottom: 66px;
-  width: 220px;
+  width: 168px;
   border: 2px solid var(--border);
   background: var(--bg);
   color: var(--text);
   box-shadow: 2px 2px 0 var(--shadow);
   padding: 8px 9px;
   font-family: "Press Start 2P", ui-monospace, monospace;
-  font-size: 0.46rem;
-  line-height: 1.6;
+  font-size: 0.44rem;
+  line-height: 1.75;
   white-space: normal;
+  overflow-wrap: normal;
+  hyphens: none;
   pointer-events: auto;
 }
 
@@ -466,6 +455,18 @@ h3 {
 
 .pixel-person--hidden .pixel-person__head {
   background: var(--text);
+}
+
+.scene-frame--catch .pixel-person--hidden .pixel-person__body {
+  background: var(--accent);
+}
+
+.scene-frame--catch .pixel-person--hidden .pixel-person__head {
+  background: var(--surface-strong);
+}
+
+.scene-frame--catch .pixel-person--hidden .pixel-person__mask {
+  display: none;
 }
 
 .button {
