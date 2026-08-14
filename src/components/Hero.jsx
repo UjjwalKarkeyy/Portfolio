@@ -2,13 +2,12 @@ import PixelAvatar from "./PixelAvatar.jsx";
 
 export default function Hero() {
   return (
-    <section className="hero container" id="home" aria-labelledby="hero-title">
+    <section className="hero container" id="home" aria-label="Home">
       <div className="hero__meta">
         <PixelAvatar size="large" />
         <span>CURRENTLY → learning / analysing / building</span>
       </div>
       <p className="eyebrow">00 / HOME</p>
-      <h1 id="hero-title">UJJWAL KARKI</h1>
       <p className="hero__role">Data Analyst · BScIT Student</p>
       <p className="hero__statement">I like finding the story hidden inside data.</p>
       <p className="hero__copy">

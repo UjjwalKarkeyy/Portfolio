@@ -44,6 +44,10 @@ export default function App() {
       event.preventDefault();
       window.history.pushState({}, "", link.pathname + link.search + link.hash);
       syncLocation();
+
+      if (!link.hash) {
+        window.requestAnimationFrame(() => window.scrollTo({ top: 0 }));
+      }
     }
 
     window.addEventListener("popstate", syncLocation);
