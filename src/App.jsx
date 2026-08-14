@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
 import About from "./components/About.jsx";
@@ -10,48 +10,78 @@ import ProjectsListPage from "./components/ProjectsListPage.jsx";
 import MusicPlayer from "./components/MusicPlayer.jsx";
 
 export default function App() {
-  const projectMatch = window.location.pathname.match(/^\/projects\/([^/]+)\/?$/);
+  const [location, setLocation] = useState({
+    pathname: window.location.pathname,
+    hash: window.location.hash
+  });
+  const projectMatch = location.pathname.match(/^\/projects\/([^/]+)\/?$/);
   const projectSlug = projectMatch ? projectMatch[1] : null;
-  const isProjectsList = /^\/projects\/?$/.test(window.location.pathname);
+  const isProjectsList = /^\/projects\/?$/.test(location.pathname);
+  const isHome = !projectSlug && !isProjectsList;
 
   useEffect(() => {
-    if (projectSlug || !window.location.hash) return;
+    function syncLocation() {
+      setLocation({
+        pathname: window.location.pathname,
+        hash: window.location.hash
+      });
+    }
+
+    function handleClick(event) {
+      if (!(event.target instanceof Element)) return;
+
+      const link = event.target.closest("a");
+      if (
+        !link ||
+        link.target ||
+        link.hasAttribute("download") ||
+        link.origin !== window.location.origin
+      ) {
+        return;
+      }
+
+      event.preventDefault();
+      window.history.pushState({}, "", link.pathname + link.search + link.hash);
+      syncLocation();
+    }
+
+    window.addEventListener("popstate", syncLocation);
+    document.addEventListener("click", handleClick);
+
+    return () => {
+      window.removeEventListener("popstate", syncLocation);
+      document.removeEventListener("click", handleClick);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isHome || !location.hash) return;
 
     window.requestAnimationFrame(() => {
-      document.querySelector(window.location.hash)?.scrollIntoView();
+      document.querySelector(location.hash)?.scrollIntoView();
     });
-  }, [projectSlug]);
+  }, [isHome, location.hash]);
+
+  let content = (
+    <main className="home-page">
+      <Hero />
+      <Projects />
+      <Toolbox />
+      <About />
+    </main>
+  );
 
   if (projectSlug) {
-    return (
-      <>
-        <Navbar />
-        <ProjectDetailPage slug={projectSlug} />
-        <Footer />
-      </>
-    );
-  }
-
-  if (isProjectsList) {
-    return (
-      <>
-        <Navbar />
-        <ProjectsListPage />
-        <Footer />
-      </>
-    );
+    content = <ProjectDetailPage slug={projectSlug} />;
+  } else if (isProjectsList) {
+    content = <ProjectsListPage />;
   }
 
   return (
     <>
       <Navbar />
-      <main className="home-page">
-        <MusicPlayer />
-        <Hero />
-        <Projects />
-        <Toolbox />
-        <About />
-      </main>
+      <MusicPlayer visible={isHome} />
+      {content}
       <Footer />
     </>
   );

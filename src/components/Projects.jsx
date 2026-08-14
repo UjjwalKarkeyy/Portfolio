@@ -3,7 +3,9 @@ import ProjectCard from "./ProjectCard.jsx";
 import { projects } from "../data/projects.js";
 
 export default function Projects() {
-  const visibleProjects = projects.slice(0, 4);
+  const visibleProjects = [...projects]
+    .sort((first, second) => (first.priority ?? 999) - (second.priority ?? 999))
+    .slice(0, 4);
 
   return (
     <section className="section container" id="projects" aria-label="Selected work">

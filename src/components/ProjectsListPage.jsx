@@ -42,20 +42,13 @@ export default function ProjectsListPage() {
 
   return (
     <main>
-      <section className="section container projects-page" aria-labelledby="projects-page-title">
+      <section className="section container projects-page" aria-label="Projects">
         <a className="text-link project-page__back" href="/#projects">
           Back to Home
         </a>
         <SectionLabel number="ALL" meta={`${projects.length} records found`}>
           PROJECTS
         </SectionLabel>
-        <div className="projects-page__header">
-          <h1 id="projects-page-title">Project index.</h1>
-          <p>
-            Search by project name, topic, genre, or skill. Filters match any
-            project that contains the selected genre or skill.
-          </p>
-        </div>
 
         <div className="project-controls" aria-label="Project search and filters">
           <label>

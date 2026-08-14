@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 const musicSource = "/media/music/spencer_yk-little-slimex27s-adventure-151007.mp3";
 
-export default function MusicPlayer() {
+export default function MusicPlayer({ visible }) {
   const audioRef = useRef(null);
   const [muted, setMuted] = useState(true);
 
@@ -41,31 +41,35 @@ export default function MusicPlayer() {
   }
 
   return (
-    <aside className="music-player" aria-label="Background music">
+    <>
       <audio ref={audioRef} src={musicSource} preload="auto" loop />
-      <div className="music-player__label">NOW PLAYING</div>
-      <div className="music-player__title">Little Slime's Adventure</div>
-      <div className="music-player__credit">
-        Music by{" "}
-        <a
-          href="https://pixabay.com/users/spencer_yk-36670691/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=151007"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Spencer Y.K.
-        </a>{" "}
-        from{" "}
-        <a
-          href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=151007"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Pixabay
-        </a>
-      </div>
-      <button className="music-player__button" type="button" onClick={toggleMuted}>
-        {muted ? "PLAY MUSIC" : "MUTE"}
-      </button>
-    </aside>
+      {visible ? (
+        <aside className="music-player" aria-label="Background music">
+          <div className="music-player__label">NOW PLAYING</div>
+          <div className="music-player__title">Little Slime's Adventure</div>
+          <div className="music-player__credit">
+            Music by{" "}
+            <a
+              href="https://pixabay.com/users/spencer_yk-36670691/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=151007"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Spencer Y.K.
+            </a>{" "}
+            from{" "}
+            <a
+              href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=151007"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Pixabay
+            </a>
+          </div>
+          <button className="music-player__button" type="button" onClick={toggleMuted}>
+            {muted ? "PLAY MUSIC" : "MUTE"}
+          </button>
+        </aside>
+      ) : null}
+    </>
   );
 }
