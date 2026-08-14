@@ -8,7 +8,7 @@ import Footer from "./components/Footer.jsx";
 import ProjectDetailPage from "./components/ProjectDetailPage.jsx";
 import ProjectsListPage from "./components/ProjectsListPage.jsx";
 import MusicPlayer from "./components/MusicPlayer.jsx";
-import ValorantRail from "./components/ValorantRail.jsx";
+import ElevatorScroll from "./components/ElevatorScroll.jsx";
 
 export default function App() {
   const [location, setLocation] = useState({
@@ -82,7 +82,7 @@ export default function App() {
     <>
       <Navbar />
       <MusicPlayer visible={isHome} />
-      {isHome ? <ValorantRail /> : null}
+      {isHome ? <ElevatorScroll /> : null}
       {content}
       <Footer />
     </>

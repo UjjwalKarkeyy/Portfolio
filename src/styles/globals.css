@@ -22,12 +22,9 @@ html {
     transition-duration: 0.01ms !important;
   }
 
-  .valorant-player__crosshair,
-  .valorant-player__particle,
-  .valorant-tracer,
-  .valorant-spike,
-  .valorant-callout {
-    display: none;
+  .elevator-person,
+  .elevator-car {
+    transition: none;
   }
 }
 
@@ -307,238 +304,143 @@ h3 {
   gap: 14px;
 }
 
-.valorant-rail {
+.elevator-scroll {
   position: fixed;
   top: 112px;
   bottom: 44px;
-  left: max(18px, calc((100vw - 1000px) / 2 - 120px));
+  left: max(14px, calc((100vw - 1000px) / 2 - 108px));
   z-index: 4;
-  width: 92px;
+  width: 82px;
   pointer-events: none;
 }
 
-.valorant-rail__line {
+.elevator-scroll__shaft {
   position: absolute;
-  top: 8px;
-  bottom: 8px;
-  left: 36px;
-  display: grid;
-  grid-template-rows: repeat(5, 1fr);
-  width: 0;
+  inset: 0;
   border-left: 2px solid color-mix(in srgb, var(--border) 28%, transparent);
+  border-right: 2px solid color-mix(in srgb, var(--border) 12%, transparent);
 }
 
-.valorant-rail__line span {
-  position: relative;
-}
-
-.valorant-rail__line span::before {
-  content: "";
+.elevator-scroll__floor {
   position: absolute;
+  right: 8px;
+  left: 8px;
+  border-top: 2px solid color-mix(in srgb, var(--border) 22%, transparent);
+}
+
+.elevator-scroll__floor--top {
   top: 0;
-  left: -6px;
-  width: 10px;
-  height: 10px;
+}
+
+.elevator-scroll__floor--mid {
+  top: 50%;
+}
+
+.elevator-scroll__floor--bottom {
+  bottom: 0;
+}
+
+.elevator-car {
+  position: absolute;
+  top: calc((100% - 76px) * var(--elevator-progress));
+  left: 13px;
+  width: 54px;
+  height: 72px;
   border: 2px solid var(--border);
   background: var(--surface);
-  box-shadow: 2px 2px 0 var(--shadow);
+  box-shadow: 3px 3px 0 var(--shadow);
+  transition: top 120ms steps(4);
+  overflow: hidden;
 }
 
-.valorant-player {
+.elevator-car__door {
   position: absolute;
-  top: calc(8px + (100% - 68px) * var(--rail-progress));
-  left: 12px;
-  width: 48px;
-  height: 62px;
-  transform: translateY(-6px);
-  transition: top 120ms steps(3), transform 160ms steps(2);
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background: var(--surface-strong);
+  transition: transform 180ms steps(2);
+}
+
+.elevator-car__door--left {
+  left: 0;
+  border-right: 2px solid var(--border);
+}
+
+.elevator-car__door--right {
+  right: 0;
+}
+
+.elevator-person {
+  position: absolute;
+  top: calc((100% - 64px) * var(--elevator-progress));
+  left: 22px;
+  width: 38px;
+  height: 58px;
+  opacity: 0;
+  transition: top 120ms steps(4), left 180ms steps(2), opacity 120ms ease;
   image-rendering: pixelated;
 }
 
-.valorant-player span,
-.valorant-tracer,
-.valorant-spike,
-.valorant-callout {
+.elevator-scroll--entering .elevator-person {
+  left: 2px;
+  opacity: 1;
+}
+
+.elevator-scroll--riding .elevator-person {
+  opacity: 0;
+}
+
+.elevator-scroll--exiting .elevator-person {
+  left: 42px;
+  opacity: 1;
+}
+
+.elevator-person span {
   position: absolute;
   display: block;
+  border: 2px solid var(--border);
 }
 
-.valorant-player__head {
+.elevator-person__head {
   top: 0;
-  left: 13px;
-  width: 22px;
-  height: 22px;
-  border: 2px solid var(--border);
+  left: 10px;
+  width: 20px;
+  height: 20px;
   background: var(--surface-strong);
 }
 
-.valorant-player__body {
-  top: 22px;
-  left: 9px;
-  width: 30px;
-  height: 28px;
-  border: 2px solid var(--border);
+.elevator-person__body {
+  top: 20px;
+  left: 7px;
+  width: 26px;
+  height: 26px;
   background: var(--accent);
 }
 
-.valorant-player__visor {
-  top: 8px;
-  left: 12px;
-  width: 24px;
-  height: 7px;
-  background: var(--text);
-}
-
-.valorant-player__arm {
-  top: 30px;
-  left: 36px;
-  width: 18px;
-  height: 7px;
-  border: 2px solid var(--border);
-  background: var(--text);
-}
-
-.valorant-player__leg {
-  top: 48px;
-  width: 11px;
-  height: 14px;
-  border: 2px solid var(--border);
-  background: var(--surface-strong);
-}
-
-.valorant-player__leg--one {
-  left: 9px;
-}
-
-.valorant-player__leg--two {
-  left: 28px;
-}
-
-.valorant-player__crosshair {
-  top: -10px;
-  left: 5px;
-  width: 38px;
-  height: 38px;
-  border: 2px solid var(--accent);
-  opacity: 0;
-}
-
-.valorant-rail--spawn .valorant-player__crosshair {
-  opacity: 0.55;
-}
-
-.valorant-rail--ability .valorant-player {
-  transform: translate(10px, -6px);
-}
-
-.valorant-player__particle {
-  width: 6px;
-  height: 6px;
-  background: var(--accent);
-  opacity: 0;
-}
-
-.valorant-player__particle--one {
-  top: 18px;
-  left: -4px;
-}
-
-.valorant-player__particle--two {
-  top: 32px;
-  left: 2px;
-}
-
-.valorant-player__particle--three {
+.elevator-person__leg {
   top: 44px;
-  left: -8px;
-}
-
-.valorant-rail--ability .valorant-player__particle {
-  opacity: 0.85;
-}
-
-.valorant-tracer {
-  top: 52%;
-  left: 58px;
-  width: 28px;
-  height: 4px;
-  background: var(--accent);
-  box-shadow: 2px 0 0 var(--shadow);
-  opacity: 0;
-}
-
-.valorant-rail--shooting .valorant-tracer {
-  opacity: 1;
-}
-
-.valorant-rail--shooting .valorant-player__arm {
-  background: var(--accent);
-}
-
-.valorant-spike {
-  top: 70%;
-  left: 54px;
-  width: 28px;
-  height: 42px;
-  opacity: 0;
-}
-
-.valorant-spike__core {
-  top: 0;
-  left: 8px;
-  width: 12px;
-  height: 18px;
-  border: 2px solid var(--border);
+  width: 10px;
+  height: 14px;
   background: var(--surface-strong);
 }
 
-.valorant-spike__bar {
-  top: 26px;
-  left: 0;
-  width: 28px;
-  height: 8px;
-  border: 2px solid var(--border);
-  background:
-    linear-gradient(
-      90deg,
-      var(--accent) calc(var(--plant-progress) * 100%),
-      transparent 0
-    ),
-    var(--surface);
+.elevator-person__leg--one {
+  left: 7px;
 }
 
-.valorant-rail--spike .valorant-spike,
-.valorant-rail--complete .valorant-spike {
-  opacity: 1;
+.elevator-person__leg--two {
+  left: 23px;
 }
 
-.valorant-callout {
-  left: 0;
-  border: 2px solid var(--border);
-  background: var(--surface);
-  color: var(--accent);
-  box-shadow: 2px 2px 0 var(--shadow);
-  padding: 7px 8px;
-  opacity: 0;
-  font-family: "Press Start 2P", ui-monospace, monospace;
-  font-size: 0.5rem;
-  line-height: 1.5;
+.elevator-scroll--entering .elevator-car__door--left,
+.elevator-scroll--exiting .elevator-car__door--left {
+  transform: translateX(-78%);
 }
 
-.valorant-callout--planted {
-  top: 76%;
-}
-
-.valorant-callout--complete {
-  top: 90%;
-}
-
-.valorant-rail--spike .valorant-callout--planted {
-  opacity: 1;
-}
-
-.valorant-rail--complete .valorant-callout--complete {
-  opacity: 1;
+.elevator-scroll--entering .elevator-car__door--right,
+.elevator-scroll--exiting .elevator-car__door--right {
+  transform: translateX(78%);
 }
 
 .button {
@@ -1136,7 +1038,7 @@ h3 {
     padding-block: 64px 80px;
   }
 
-  .valorant-rail {
+  .elevator-scroll {
     display: none;
   }
 
