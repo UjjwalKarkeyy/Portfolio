@@ -6,7 +6,7 @@ export default function Projects() {
   return (
     <section className="section container" id="projects" aria-label="Selected work">
       <SectionLabel number="01" meta={`${projects.length} records found`}>
-        SELECTED WORK
+        PROJECTS
       </SectionLabel>
       <div className="project-list">
         {projects.map((project, index) => (

@@ -38,11 +38,6 @@ export default function Footer() {
         <button className="footer__email" type="button" onClick={copyEmail}>
           ujjwalkarki [dot] official [at] gmail [dot] com
         </button>
-        {copied ? (
-          <span className="footer__copied" role="status">
-            Copied to clipboard!
-          </span>
-        ) : null}
       </div>
       <p className="footer__end">&lt; END OF FILE /&gt;</p>
       <div className="footer__links">
@@ -62,6 +57,11 @@ export default function Footer() {
           LinkedIn ↗
         </a>
       </div>
+      {copied ? (
+        <div className="copy-toast" role="status">
+          Copied to clipboard!
+        </div>
+      ) : null}
     </footer>
   );
 }
