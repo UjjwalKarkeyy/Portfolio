@@ -8,6 +8,7 @@ import Footer from "./components/Footer.jsx";
 import ProjectDetailPage from "./components/ProjectDetailPage.jsx";
 import ProjectsListPage from "./components/ProjectsListPage.jsx";
 import MusicPlayer from "./components/MusicPlayer.jsx";
+import IdentityChase from "./components/IdentityChase.jsx";
 
 export default function App() {
   const [location, setLocation] = useState({
@@ -65,6 +66,7 @@ export default function App() {
   let content = (
     <main className="home-page">
       <Hero />
+      <IdentityChase />
       <Projects />
       <Toolbox />
       <About />

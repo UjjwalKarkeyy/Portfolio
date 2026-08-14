@@ -299,6 +299,177 @@ h3 {
   gap: 14px;
 }
 
+.identity-chase__stage {
+  position: fixed;
+  top: 110px;
+  bottom: 34px;
+  left: max(18px, calc((100vw - 1000px) / 2 - 190px));
+  z-index: 4;
+  width: 160px;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  box-shadow: 4px 4px 0 var(--shadow);
+  overflow: hidden;
+}
+
+.identity-chase__stage::before {
+  content: "ANIMATION / IDENTITY CHASE";
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  right: 10px;
+  color: var(--muted);
+  font-family: "Press Start 2P", ui-monospace, monospace;
+  font-size: 0.46rem;
+  line-height: 1.6;
+  z-index: 2;
+}
+
+.identity-chase__track {
+  position: absolute;
+  top: 70px;
+  right: 50%;
+  bottom: 28px;
+  left: auto;
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  width: 0;
+  border-left: 2px solid color-mix(in srgb, var(--border) 28%, transparent);
+}
+
+.identity-chase__track span {
+  min-width: 54px;
+  border-bottom: 2px solid color-mix(in srgb, var(--border) 14%, transparent);
+}
+
+.scene-character {
+  position: absolute;
+  left: 52px;
+  width: 56px;
+  transition: top 420ms steps(4), transform 420ms steps(4);
+}
+
+.scene-character--normal {
+  top: 92px;
+}
+
+.scene-character--hidden {
+  top: 190px;
+}
+
+.scene-frame--answer .scene-character--hidden {
+  transform: translateX(6px);
+}
+
+.scene-frame--run-one .scene-character--normal {
+  top: 160px;
+}
+
+.scene-frame--run-one .scene-character--hidden {
+  top: 285px;
+}
+
+.scene-frame--run-two .scene-character--normal {
+  top: 285px;
+}
+
+.scene-frame--run-two .scene-character--hidden {
+  top: 365px;
+}
+
+.scene-frame--catch .scene-character--normal {
+  top: 420px;
+}
+
+.scene-frame--catch .scene-character--hidden {
+  top: 450px;
+}
+
+.scene-bubble {
+  position: absolute;
+  bottom: 58px;
+  min-width: 150px;
+  border: 2px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  box-shadow: 2px 2px 0 var(--shadow);
+  padding: 8px 9px;
+  font-family: "Press Start 2P", ui-monospace, monospace;
+  font-size: 0.46rem;
+  line-height: 1.6;
+}
+
+.scene-bubble--normal {
+  left: 28px;
+}
+
+.scene-bubble--hidden {
+  right: 28px;
+}
+
+.pixel-person {
+  position: relative;
+  width: 42px;
+  height: 62px;
+  image-rendering: pixelated;
+}
+
+.pixel-person__head,
+.pixel-person__body,
+.pixel-person__mask,
+.pixel-person__leg {
+  position: absolute;
+  display: block;
+  border: 2px solid var(--border);
+}
+
+.pixel-person__head {
+  top: 0;
+  left: 11px;
+  width: 24px;
+  height: 24px;
+  background: var(--surface-strong);
+}
+
+.pixel-person__body {
+  top: 24px;
+  left: 8px;
+  width: 30px;
+  height: 28px;
+  background: var(--accent);
+}
+
+.pixel-person__mask {
+  top: 9px;
+  left: 10px;
+  width: 28px;
+  height: 9px;
+  background: var(--text);
+}
+
+.pixel-person__leg {
+  top: 50px;
+  width: 12px;
+  height: 14px;
+  background: var(--surface-strong);
+}
+
+.pixel-person__leg--one {
+  left: 8px;
+}
+
+.pixel-person__leg--two {
+  left: 26px;
+}
+
+.pixel-person--hidden .pixel-person__body {
+  background: var(--surface-strong);
+}
+
+.pixel-person--hidden .pixel-person__head {
+  background: var(--text);
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -892,6 +1063,10 @@ h3 {
   .hero {
     min-height: auto;
     padding-block: 64px 80px;
+  }
+
+  .identity-chase__stage {
+    display: none;
   }
 
   .section-grid,
