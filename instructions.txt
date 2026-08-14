@@ -1,0 +1,15 @@
+1. Project expansion
+	- As in future, projects can get too many, so for now, in the project section of main page, just display top 4 projects 
+    (by when they were added, but no need to show date to the user). Then a button at the end that says 'View more' if there are 
+    more than 4 projects. The record count that says '__ records found' should display the total projects count.
+	
+    - Add a genre tag for each project. The genre will be given by the user from the code section. Make sure the genre are like 
+    'lowercased' so that later when filtering, same genres can be easily filtered out. Also, this genre should appear beside the 
+    project title and not together with tags. Lastly, the user (from the code side) should be able to assign a project different 
+    genres as per the project.
+
+	- Once 'View more' is clicked, the user should be redirected to a projects list page where they now get to see all the projects. 
+    Also, in this page there should be a search bar and a filter. Using search bar, the user can search for any projects 
+    (if such project exists, else show 'I haven't done this project 🧐, but maybe something similar or interesting is still here 
+    for you 🫣'). For the filter, the user should be able to filter based on both genre and skills and the result should be 
+    any project that contains that genre or skill

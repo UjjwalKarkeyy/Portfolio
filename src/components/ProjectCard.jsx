@@ -10,9 +10,20 @@ export default function ProjectCard({ project, index }) {
       </div>
       <div className="project-card__content">
         <div>
-          <h3>
-            <a href={`/projects/${project.slug}`}>{project.title}</a>
-          </h3>
+          <div className="project-card__title-row">
+            <h3>
+              <a href={`/projects/${project.slug}`}>{project.title}</a>
+            </h3>
+            {project.genres?.length ? (
+              <div className="genre-list" aria-label={`${project.title} genres`}>
+                {project.genres.map((genre) => (
+                  <span className="genre-tag" key={genre}>
+                    {genre}
+                  </span>
+                ))}
+              </div>
+            ) : null}
+          </div>
           <p>{project.description}</p>
         </div>
         <div className="project-card__side">

@@ -6,10 +6,12 @@ import Projects from "./components/Projects.jsx";
 import Toolbox from "./components/Toolbox.jsx";
 import Footer from "./components/Footer.jsx";
 import ProjectDetailPage from "./components/ProjectDetailPage.jsx";
+import ProjectsListPage from "./components/ProjectsListPage.jsx";
 
 export default function App() {
   const projectMatch = window.location.pathname.match(/^\/projects\/([^/]+)\/?$/);
   const projectSlug = projectMatch ? projectMatch[1] : null;
+  const isProjectsList = /^\/projects\/?$/.test(window.location.pathname);
 
   useEffect(() => {
     if (projectSlug || !window.location.hash) return;
@@ -24,6 +26,16 @@ export default function App() {
       <>
         <Navbar />
         <ProjectDetailPage slug={projectSlug} />
+        <Footer />
+      </>
+    );
+  }
+
+  if (isProjectsList) {
+    return (
+      <>
+        <Navbar />
+        <ProjectsListPage />
         <Footer />
       </>
     );

@@ -59,6 +59,15 @@ export default function ProjectDetailPage({ slug }) {
         <div className="project-page__header">
           <div>
             <h1 id="project-title">{project.title}</h1>
+            {project.genres?.length ? (
+              <div className="genre-list project-page__genres" aria-label={`${project.title} genres`}>
+                {project.genres.map((genre) => (
+                  <span className="genre-tag" key={genre}>
+                    {genre}
+                  </span>
+                ))}
+              </div>
+            ) : null}
             <p>{project.description}</p>
           </div>
           <div className="project-page__links">
