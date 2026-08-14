@@ -299,174 +299,200 @@ h3 {
   gap: 14px;
 }
 
-.identity-chase__stage {
+.pixel-battle__stage {
   position: fixed;
-  top: 110px;
-  bottom: 34px;
-  left: max(18px, calc((100vw - 1000px) / 2 - 195px));
+  top: 120px;
+  bottom: 44px;
+  left: max(18px, calc((100vw - 1000px) / 2 - 150px));
   z-index: 4;
-  width: 180px;
+  width: 120px;
   pointer-events: none;
 }
 
-.identity-chase__track {
+.battle-track {
   position: absolute;
-  top: 70px;
-  left: 68px;
-  bottom: 28px;
+  top: 18px;
+  bottom: 18px;
+  left: 56px;
   display: grid;
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   width: 0;
-  border-left: 2px solid color-mix(in srgb, var(--border) 28%, transparent);
+  border-left: 2px solid color-mix(in srgb, var(--border) 22%, transparent);
 }
 
-.identity-chase__track span {
-  min-width: 54px;
-  border-bottom: 2px solid color-mix(in srgb, var(--border) 14%, transparent);
+.battle-track span {
+  min-width: 42px;
+  border-bottom: 2px solid color-mix(in srgb, var(--border) 12%, transparent);
 }
 
-.scene-character {
+.battle-hero {
   position: absolute;
-  left: 48px;
-  width: 56px;
-  transition: top 420ms steps(4), transform 420ms steps(4);
-}
-
-.scene-character--normal {
-  top: 92px;
-}
-
-.scene-character--hidden {
-  top: 190px;
-}
-
-.scene-frame--answer .scene-character--hidden {
-  transform: translateX(6px);
-}
-
-.scene-frame--run-one .scene-character--normal {
-  top: 160px;
-}
-
-.scene-frame--run-one .scene-character--hidden {
-  top: 285px;
-}
-
-.scene-frame--run-two .scene-character--normal {
-  top: 285px;
-}
-
-.scene-frame--run-two .scene-character--hidden {
-  top: 365px;
-}
-
-.scene-frame--catch .scene-character--normal {
-  top: 420px;
-}
-
-.scene-frame--catch .scene-character--hidden {
-  top: 450px;
-}
-
-.scene-bubble {
-  position: absolute;
-  bottom: 66px;
-  width: 168px;
-  border: 2px solid var(--border);
-  background: var(--bg);
-  color: var(--text);
-  box-shadow: 2px 2px 0 var(--shadow);
-  padding: 8px 9px;
-  font-family: "Press Start 2P", ui-monospace, monospace;
-  font-size: 0.44rem;
-  line-height: 1.75;
-  white-space: normal;
-  overflow-wrap: normal;
-  hyphens: none;
-  pointer-events: auto;
-}
-
-.scene-bubble--normal {
-  right: 62px;
-}
-
-.scene-bubble--hidden {
-  right: 62px;
-}
-
-.pixel-person {
-  position: relative;
-  width: 42px;
-  height: 62px;
+  top: 42px;
+  left: 30px;
+  width: 54px;
+  height: 70px;
+  transition: top 420ms steps(4);
   image-rendering: pixelated;
 }
 
-.pixel-person__head,
-.pixel-person__body,
-.pixel-person__mask,
-.pixel-person__leg {
+.battle-frame--monster-one .battle-hero {
+  top: 150px;
+}
+
+.battle-frame--monster-two .battle-hero {
+  top: 270px;
+}
+
+.battle-frame--monster-three .battle-hero {
+  top: 390px;
+}
+
+.battle-frame--victory .battle-hero {
+  top: 465px;
+}
+
+.battle-hero span,
+.battle-monster,
+.battle-shot {
   position: absolute;
   display: block;
-  border: 2px solid var(--border);
 }
 
-.pixel-person__head {
+.battle-hero__head {
   top: 0;
-  left: 11px;
+  left: 14px;
   width: 24px;
   height: 24px;
+  border: 2px solid var(--border);
   background: var(--surface-strong);
 }
 
-.pixel-person__body {
+.battle-hero__body {
   top: 24px;
-  left: 8px;
-  width: 30px;
+  left: 10px;
+  width: 32px;
   height: 28px;
+  border: 2px solid var(--border);
   background: var(--accent);
 }
 
-.pixel-person__mask {
-  top: 9px;
-  left: 10px;
-  width: 28px;
-  height: 9px;
+.battle-hero__gun {
+  top: 34px;
+  left: 40px;
+  width: 22px;
+  height: 8px;
+  border: 2px solid var(--border);
   background: var(--text);
 }
 
-.pixel-person__leg {
+.battle-hero__leg {
   top: 50px;
   width: 12px;
-  height: 14px;
+  height: 16px;
+  border: 2px solid var(--border);
   background: var(--surface-strong);
 }
 
-.pixel-person__leg--one {
-  left: 8px;
+.battle-hero__leg--one {
+  left: 10px;
 }
 
-.pixel-person__leg--two {
-  left: 26px;
+.battle-hero__leg--two {
+  left: 30px;
 }
 
-.pixel-person--hidden .pixel-person__body {
+.battle-monster {
+  left: 62px;
+  width: 34px;
+  height: 30px;
+  border: 2px solid var(--border);
   background: var(--surface-strong);
+  box-shadow: 2px 2px 0 var(--shadow);
+  transition: opacity 220ms ease, transform 220ms ease;
 }
 
-.pixel-person--hidden .pixel-person__head {
+.battle-monster span {
+  position: absolute;
+  top: 8px;
+  width: 6px;
+  height: 6px;
   background: var(--text);
 }
 
-.scene-frame--catch .pixel-person--hidden .pixel-person__body {
+.battle-monster span:first-child {
+  left: 7px;
+}
+
+.battle-monster span:last-child {
+  right: 7px;
+}
+
+.battle-monster--one {
+  top: 150px;
+}
+
+.battle-monster--two {
+  top: 270px;
+}
+
+.battle-monster--three {
+  top: 390px;
+}
+
+.battle-frame--monster-two .battle-monster--one,
+.battle-frame--monster-three .battle-monster--one,
+.battle-frame--monster-three .battle-monster--two,
+.battle-frame--victory .battle-monster {
+  opacity: 0;
+  transform: translateX(16px);
+}
+
+.battle-shot {
+  left: 82px;
+  width: 20px;
+  height: 4px;
   background: var(--accent);
+  opacity: 0;
+  box-shadow: 2px 0 0 var(--shadow);
 }
 
-.scene-frame--catch .pixel-person--hidden .pixel-person__head {
-  background: var(--surface-strong);
+.battle-shot--one {
+  top: 184px;
 }
 
-.scene-frame--catch .pixel-person--hidden .pixel-person__mask {
-  display: none;
+.battle-shot--two {
+  top: 304px;
+}
+
+.battle-shot--three {
+  top: 424px;
+}
+
+.battle-frame--monster-one .battle-shot--one,
+.battle-frame--monster-two .battle-shot--two,
+.battle-frame--monster-three .battle-shot--three {
+  opacity: 1;
+}
+
+.battle-victory {
+  position: absolute;
+  top: 540px;
+  left: 0;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  color: var(--accent);
+  box-shadow: 2px 2px 0 var(--shadow);
+  padding: 8px 9px;
+  opacity: 0;
+  font-family: "Press Start 2P", ui-monospace, monospace;
+  font-size: 0.58rem;
+  line-height: 1.5;
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.battle-frame--victory .battle-victory {
+  opacity: 1;
+  transform: translateY(-8px);
 }
 
 .button {
@@ -1064,7 +1090,7 @@ h3 {
     padding-block: 64px 80px;
   }
 
-  .identity-chase__stage {
+  .pixel-battle__stage {
     display: none;
   }
 
