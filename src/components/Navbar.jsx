@@ -21,7 +21,7 @@ export default function Navbar() {
   return (
     <header className="site-header">
       <nav className="nav container" aria-label="Primary navigation">
-        <a className="nav__brand" href="#home" aria-label="Ujjwal Karki home">
+        <a className="nav__brand" href="/" aria-label="Ujjwal Karki home">
           <span>UJJWAL KARKI</span>
         </a>
         <div className="nav__links">
