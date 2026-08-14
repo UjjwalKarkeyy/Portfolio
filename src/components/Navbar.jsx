@@ -1,9 +1,9 @@
 import ThemeToggle from "./ThemeToggle.jsx";
 
 const links = [
-  { label: "PROJECTS", href: "#projects" },
-  { label: "TOOLBOX", href: "#toolbox" },
-  { label: "ABOUT", href: "#about" },
+  { label: "PROJECTS", href: "/#projects" },
+  { label: "TOOLBOX", href: "/#toolbox" },
+  { label: "ABOUT", href: "/#about" },
   { label: "RESUME", href: "/resume.pdf", download: true },
   {
     label: "GITHUB ↗",
