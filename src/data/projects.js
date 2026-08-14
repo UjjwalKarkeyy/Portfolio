@@ -48,6 +48,34 @@ export const projects = [
     placeholder: true,
     snapshots: [],
     extras: []
+  },
+  {
+    slug: "sales-trend-analysis",
+    title: "Sales Trend Analysis",
+    description:
+      "Placeholder for a business analysis project focused on identifying revenue patterns, seasonal changes, and product-level performance signals.",
+    github: "https://github.com/UjjwalKarkeyy",
+    genres: ["data-analysis", "business"],
+    tags: ["Python", "Pandas", "Excel"],
+    year: "2026",
+    featured: false,
+    placeholder: true,
+    snapshots: [],
+    extras: []
+  },
+  {
+    slug: "portfolio-data-tracker",
+    title: "Portfolio Data Tracker",
+    description:
+      "Placeholder for a small frontend project that organizes project records, filters portfolio data, and keeps future additions easier to maintain.",
+    github: "https://github.com/UjjwalKarkeyy",
+    genres: ["frontend", "portfolio"],
+    tags: ["React", "GitHub", "Data Visualization"],
+    year: "2026",
+    featured: false,
+    placeholder: true,
+    snapshots: [],
+    extras: []
   }
 ];
 
