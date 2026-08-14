@@ -66,7 +66,6 @@ export default function App() {
   let content = (
     <main className="home-page">
       <Hero />
-      <IdentityChase />
       <Projects />
       <Toolbox />
       <About />
