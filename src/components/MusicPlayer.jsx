@@ -4,7 +4,7 @@ const musicSource = "/media/music/spencer_yk-little-slimex27s-adventure-151007.m
 
 export default function MusicPlayer() {
   const audioRef = useRef(null);
-  const [muted, setMuted] = useState(false);
+  const [muted, setMuted] = useState(true);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -14,24 +14,13 @@ export default function MusicPlayer() {
     audio.loop = true;
     audio.muted = muted;
 
-    const playAudio = () => {
-      if (!muted) {
-        audio.play().catch(() => {});
-      }
-    };
-
-    playAudio();
-
-    window.addEventListener("pointerdown", playAudio, { once: true });
-    window.addEventListener("keydown", playAudio, { once: true });
-    window.addEventListener("touchstart", playAudio, { once: true });
-    window.addEventListener("scroll", playAudio, { once: true, passive: true });
+    if (muted) {
+      audio.pause();
+    } else {
+      audio.play().catch(() => {});
+    }
 
     return () => {
-      window.removeEventListener("pointerdown", playAudio);
-      window.removeEventListener("keydown", playAudio);
-      window.removeEventListener("touchstart", playAudio);
-      window.removeEventListener("scroll", playAudio);
       audio.pause();
     };
   }, [muted]);
@@ -53,7 +42,7 @@ export default function MusicPlayer() {
 
   return (
     <aside className="music-player" aria-label="Background music">
-      <audio ref={audioRef} src={musicSource} preload="auto" autoPlay loop />
+      <audio ref={audioRef} src={musicSource} preload="auto" loop />
       <div className="music-player__label">NOW PLAYING</div>
       <div className="music-player__title">Little Slime's Adventure</div>
       <div className="music-player__credit">
@@ -75,7 +64,7 @@ export default function MusicPlayer() {
         </a>
       </div>
       <button className="music-player__button" type="button" onClick={toggleMuted}>
-        {muted ? "PLAY" : "MUTE"}
+        {muted ? "PLAY MUSIC" : "MUTE"}
       </button>
     </aside>
   );
