@@ -12,12 +12,26 @@ export default function MusicPlayer() {
 
     audio.volume = 0.28;
     audio.loop = true;
+    audio.muted = muted;
 
-    if (!muted) {
-      audio.play().catch(() => {});
-    }
+    const playAudio = () => {
+      if (!muted) {
+        audio.play().catch(() => {});
+      }
+    };
+
+    playAudio();
+
+    window.addEventListener("pointerdown", playAudio, { once: true });
+    window.addEventListener("keydown", playAudio, { once: true });
+    window.addEventListener("touchstart", playAudio, { once: true });
+    window.addEventListener("scroll", playAudio, { once: true, passive: true });
 
     return () => {
+      window.removeEventListener("pointerdown", playAudio);
+      window.removeEventListener("keydown", playAudio);
+      window.removeEventListener("touchstart", playAudio);
+      window.removeEventListener("scroll", playAudio);
       audio.pause();
     };
   }, [muted]);
