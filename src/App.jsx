@@ -45,8 +45,8 @@ export default function App() {
   return (
     <>
       <Navbar />
-      <MusicPlayer />
-      <main>
+      <main className="home-page">
+        <MusicPlayer />
         <Hero />
         <Projects />
         <Toolbox />

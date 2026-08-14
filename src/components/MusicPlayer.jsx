@@ -5,7 +5,6 @@ const musicSource = "/media/music/spencer_yk-little-slimex27s-adventure-151007.m
 export default function MusicPlayer() {
   const audioRef = useRef(null);
   const [muted, setMuted] = useState(false);
-  const [blocked, setBlocked] = useState(false);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -14,29 +13,11 @@ export default function MusicPlayer() {
     audio.volume = 0.28;
     audio.loop = true;
 
-    const playAudio = async () => {
-      try {
-        await audio.play();
-        setBlocked(false);
-      } catch {
-        setBlocked(true);
-      }
-    };
-
-    playAudio();
-
-    const resumeAudio = () => {
-      if (!muted) {
-        playAudio();
-      }
-    };
-
-    window.addEventListener("pointerdown", resumeAudio, { once: true });
-    window.addEventListener("keydown", resumeAudio, { once: true });
+    if (!muted) {
+      audio.play().catch(() => {});
+    }
 
     return () => {
-      window.removeEventListener("pointerdown", resumeAudio);
-      window.removeEventListener("keydown", resumeAudio);
       audio.pause();
     };
   }, [muted]);
@@ -47,19 +28,18 @@ export default function MusicPlayer() {
 
     if (muted) {
       audio.muted = false;
-      audio.play().catch(() => setBlocked(true));
+      audio.play().catch(() => {});
       setMuted(false);
     } else {
       audio.pause();
       audio.muted = true;
       setMuted(true);
-      setBlocked(false);
     }
   }
 
   return (
     <aside className="music-player" aria-label="Background music">
-      <audio ref={audioRef} src={musicSource} preload="auto" />
+      <audio ref={audioRef} src={musicSource} preload="auto" autoPlay loop />
       <div className="music-player__label">NOW PLAYING</div>
       <div className="music-player__title">Little Slime's Adventure</div>
       <div className="music-player__credit">
@@ -80,9 +60,6 @@ export default function MusicPlayer() {
           Pixabay
         </a>
       </div>
-      {blocked ? (
-        <div className="music-player__status">Tap anywhere to start audio</div>
-      ) : null}
       <button className="music-player__button" type="button" onClick={toggleMuted}>
         {muted ? "PLAY" : "MUTE"}
       </button>
