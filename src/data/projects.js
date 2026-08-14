@@ -7,7 +7,17 @@ export const projects = [
     tags: ["Python", "SQL", "Pandas"],
     year: "2026",
     featured: true,
-    placeholder: true
+    placeholder: true,
+    snapshots: [],
+    extras: [
+      {
+        heading: "Replace with project notes",
+        bullets: [
+          "Add a short heading and as many supporting bullet points as needed.",
+          "Snapshots can be added with image or video paths from the public folder."
+        ]
+      }
+    ]
   },
   {
     title: "Dashboard Study",
@@ -17,7 +27,9 @@ export const projects = [
     tags: ["Power BI", "Excel", "Data Visualization"],
     year: "2026",
     featured: true,
-    placeholder: true
+    placeholder: true,
+    snapshots: [],
+    extras: []
   },
   {
     title: "Machine Learning Notebook",
@@ -27,6 +39,22 @@ export const projects = [
     tags: ["Python", "Scikit-learn", "Machine Learning"],
     year: "2026",
     featured: false,
-    placeholder: true
+    placeholder: true,
+    snapshots: [],
+    extras: []
   }
 ];
+
+// Snapshot example:
+// snapshots: [
+//   { type: "image", src: "/projects/churn-dashboard.png", alt: "Dashboard overview" },
+//   { type: "video", src: "/projects/model-demo.mp4", title: "Notebook walkthrough" }
+// ]
+//
+// Extras example:
+// extras: [
+//   {
+//     heading: "Key decisions",
+//     bullets: ["Cleaned missing values before analysis.", "Compared churn by customer segment."]
+//   }
+// ]

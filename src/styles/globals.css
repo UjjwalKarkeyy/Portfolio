@@ -343,6 +343,10 @@ h3 {
   box-shadow: 6px 6px 0 var(--shadow);
 }
 
+.project-card--open {
+  border-color: var(--accent);
+}
+
 .project-card__meta {
   flex-wrap: wrap;
   gap: 10px 16px;
@@ -352,22 +356,64 @@ h3 {
   line-height: 1.7;
 }
 
-.project-card__content {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(230px, 300px);
-  gap: clamp(20px, 4vw, 42px);
-}
-
 .project-card p {
   margin-bottom: 0;
   color: var(--muted);
 }
 
-.project-card__side {
+.project-card__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 18px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.project-card__title {
+  margin-bottom: 0;
+}
+
+.project-card__title-text {
+  display: block;
+  margin-bottom: 6px;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.project-card__toggle small {
+  color: var(--muted);
+  font-family: "Press Start 2P", ui-monospace, monospace;
+  font-size: 0.55rem;
+}
+
+.project-card__toggle-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  border: 2px solid var(--border);
+  background: var(--surface-strong);
+  box-shadow: 2px 2px 0 var(--shadow);
+  font-family: "Press Start 2P", ui-monospace, monospace;
+  font-size: 0.9rem;
+}
+
+.project-card__details {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   gap: 24px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 2px solid color-mix(in srgb, var(--border) 18%, transparent);
 }
 
 .tag-list {
@@ -418,6 +464,100 @@ h3 {
   gap: 14px;
   font-family: "Press Start 2P", ui-monospace, monospace;
   font-size: 0.62rem;
+}
+
+.project-detail-section {
+  display: grid;
+  gap: 14px;
+}
+
+.project-detail-section h4 {
+  margin: 0;
+  font-family: "Press Start 2P", ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0;
+}
+
+.snapshot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.snapshot-tile {
+  aspect-ratio: 4 / 3;
+  border: 2px solid var(--border);
+  padding: 0;
+  background: var(--surface-strong);
+  box-shadow: 2px 2px 0 var(--shadow);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.snapshot-tile img,
+.snapshot-tile video,
+.snapshot-preview img,
+.snapshot-preview video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.snapshot-preview {
+  position: relative;
+  width: min(100%, 760px);
+  max-height: 520px;
+  border: 2px solid var(--border);
+  background: var(--surface-strong);
+  box-shadow: 4px 4px 0 var(--shadow);
+  overflow: hidden;
+}
+
+.snapshot-preview img,
+.snapshot-preview video {
+  max-height: 520px;
+  object-fit: contain;
+}
+
+.snapshot-preview__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 2px 2px 0 var(--shadow);
+  cursor: pointer;
+  font-family: "Press Start 2P", ui-monospace, monospace;
+  font-size: 0.55rem;
+  padding: 8px;
+}
+
+.extras {
+  gap: 18px;
+}
+
+.extras__group {
+  display: grid;
+  gap: 8px;
+}
+
+.extras__group h5 {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.extras__group ul {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+  font-size: 0.92rem;
 }
 
 .toolbox-grid {
@@ -582,8 +722,7 @@ h3 {
   }
 
   .section-grid,
-  .section-heading,
-  .project-card__content {
+  .section-heading {
     grid-template-columns: 1fr;
   }
 
