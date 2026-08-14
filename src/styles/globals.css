@@ -308,7 +308,7 @@ h3 {
   position: fixed;
   top: 112px;
   bottom: 44px;
-  left: max(14px, calc((100vw - 1000px) / 2 - 108px));
+  left: max(8px, calc((100vw - 1000px) / 2 - 150px));
   z-index: 4;
   width: 82px;
   pointer-events: none;
