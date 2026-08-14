@@ -89,9 +89,9 @@ export default function ProjectDetailPage({ slug }) {
           ))}
         </div>
 
-        {snapshots.length > 0 ? (
-          <section className="project-detail-section" aria-label={`${project.title} snapshots`}>
-            <h2>SNAPSHOTS</h2>
+        <section className="project-detail-section" aria-label={`${project.title} snapshots`}>
+          <h2>SNAPSHOTS</h2>
+          {snapshots.length > 0 ? (
             <div className="snapshot-grid">
               {snapshots.map((snapshot, snapshotIndex) => (
                 <button
@@ -104,21 +104,27 @@ export default function ProjectDetailPage({ slug }) {
                 </button>
               ))}
             </div>
-            {activeSnapshot !== null ? (
-              <div className="snapshot-preview">
-                <button
-                  className="snapshot-preview__close"
-                  type="button"
-                  onClick={() => setActiveSnapshot(null)}
-                  aria-label="Close snapshot preview"
-                >
-                  Close
-                </button>
-                <SnapshotMedia snapshot={snapshots[activeSnapshot]} isPreview />
+          ) : (
+            <div className="snapshot-grid snapshot-grid--empty">
+              <div className="snapshot-empty">
+                Add image or video snapshots in the project data file.
               </div>
-            ) : null}
-          </section>
-        ) : null}
+            </div>
+          )}
+          {activeSnapshot !== null ? (
+            <div className="snapshot-preview">
+              <button
+                className="snapshot-preview__close"
+                type="button"
+                onClick={() => setActiveSnapshot(null)}
+                aria-label="Close snapshot preview"
+              >
+                Close
+              </button>
+              <SnapshotMedia snapshot={snapshots[activeSnapshot]} isPreview />
+            </div>
+          ) : null}
+        </section>
 
         {extras.length > 0 ? (
           <section className="project-detail-section extras" aria-label={`${project.title} extras`}>

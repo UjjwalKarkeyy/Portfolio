@@ -477,6 +477,18 @@ h3 {
   gap: 12px;
 }
 
+.snapshot-grid--empty {
+  grid-template-columns: 1fr;
+}
+
+.snapshot-empty {
+  border: 2px dashed color-mix(in srgb, var(--border) 45%, transparent);
+  background: var(--surface);
+  color: var(--muted);
+  padding: 22px;
+  font-size: 0.95rem;
+}
+
 .snapshot-tile {
   aspect-ratio: 4 / 3;
   border: 2px solid var(--border);
