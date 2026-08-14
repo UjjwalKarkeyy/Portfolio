@@ -1,9 +1,9 @@
-import PixelAvatar from "./PixelAvatar.jsx";
 import ThemeToggle from "./ThemeToggle.jsx";
 
 const links = [
-  { label: "ABOUT", href: "#about" },
   { label: "PROJECTS", href: "#projects" },
+  { label: "TOOLBOX", href: "#toolbox" },
+  { label: "ABOUT", href: "#about" },
   { label: "RESUME", href: "/resume.pdf", download: true },
   {
     label: "GITHUB ↗",
@@ -22,7 +22,6 @@ export default function Navbar() {
     <header className="site-header">
       <nav className="nav container" aria-label="Primary navigation">
         <a className="nav__brand" href="#home" aria-label="Ujjwal Karki home">
-          <PixelAvatar />
           <span>UJJWAL KARKI</span>
         </a>
         <div className="nav__links">

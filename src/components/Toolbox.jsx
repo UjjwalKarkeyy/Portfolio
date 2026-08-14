@@ -4,8 +4,8 @@ import { skillGroups } from "../data/skills.js";
 export default function Toolbox() {
   return (
     <section className="section container" id="toolbox" aria-labelledby="toolbox-title">
-      <SectionLabel number="03">TOOLBOX</SectionLabel>
-      <div className="section-heading">
+      <SectionLabel number="02">TOOLBOX</SectionLabel>
+      <div className="section-heading section-heading--wide">
         <h2 id="toolbox-title">Tools for analysis, reporting, and building.</h2>
       </div>
       <div className="toolbox-grid">

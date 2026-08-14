@@ -3,7 +3,6 @@ import Hero from "./components/Hero.jsx";
 import About from "./components/About.jsx";
 import Projects from "./components/Projects.jsx";
 import Toolbox from "./components/Toolbox.jsx";
-import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 
 export default function App() {
@@ -12,13 +11,11 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <About />
         <Projects />
         <Toolbox />
-        <Contact />
+        <About />
       </main>
       <Footer />
     </>
   );
 }
-
