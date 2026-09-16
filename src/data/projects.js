@@ -10,7 +10,7 @@ export const projects = [
     tags: ["Python", "SQL", "Excel", "PowerBI", "AWS", "GitHub"],
     year: "2026",
     featured: true,
-    placeholder: true,
+    placeholder: false,
     snapshots: [
       {type: "image", src: "/projects/saas_prod_analysis_on_cus_feedback/competitive_perfor_next_qr_dashboard.png", title: "Competitive Performance and Next Quarter Dashboard"},
       {type: "image", src: "/projects/saas_prod_analysis_on_cus_feedback/customer_exp_&_prod_health_dashboard.png", title: "Customer Experience and Production Health Dashboard"},
@@ -39,7 +39,7 @@ export const projects = [
     tags: ["Python", "SQL", "Excel", "PowerBI", "XGBoost"],
     year: "2026",
     featured: true,
-    placeholder: true,
+    placeholder: false,
     snapshots: [
       {type: "image", src: "/projects/falcon-stack-saas-growth-retention-analysis/churn_diagnosis.png", title: "Churn Diagnosis Dashboard"},
       {type: "image", src: "/projects/falcon-stack-saas-growth-retention-analysis/growth_sustainability_dashboard.png", title: "Growth Sustainability Dashboard"},
@@ -53,7 +53,7 @@ export const projects = [
           "Analyzed customer, subscription, usage, support, and churn data",
           "Built SQL metrics for growth, retention, churn, MRR, NRR, GRR, ARPU, and LTV",
           "Created Excel and Power BI dashboards",
-          "Built an XGBoost churn model with 92% accuracy and FastAPI scoring app"
+          "Built an XGBoost churn model with 82% F1 and FastAPI scoring app"
         ]
       }
     ]
@@ -69,7 +69,7 @@ export const projects = [
     tags: ["Python", "SQL", "Excel", "PowerBI"],
     year: "2026",
     featured: true,
-    placeholder: true,
+    placeholder: false,
     snapshots: [
       {type: "image", src: "/projects/hr-data-analysis/hr_workforce_analytics_dashboard.png", title: "HR Workforce Analytics Dashboard"},
     ],
