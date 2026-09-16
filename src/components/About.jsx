@@ -20,7 +20,7 @@ export default function About() {
           <p>
             Outside data, I'm a beatboxer, gamer, and content creator. My
             current favorite games are Valorant and Mafia, I like making gaming
-            and comedy content, and I keep a daily journal that is now past 700
+            and comedy content, and I keep a daily journal that is now past 800
             days.
           </p>
         </div>
