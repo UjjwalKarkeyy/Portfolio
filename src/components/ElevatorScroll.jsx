@@ -42,9 +42,9 @@ export default function ElevatorScroll() {
   return (
     <aside
       className={`elevator-scroll ${
-        progress < 0.12
+        progress < 0.045
           ? "elevator-scroll--entering"
-          : progress > 0.88
+          : progress > 0.96
             ? "elevator-scroll--exiting"
             : "elevator-scroll--riding"
       }`}
